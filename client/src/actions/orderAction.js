@@ -18,7 +18,7 @@ export const getUserOrders = () => async (dispatch , getState) => {
     const currentUser = getState().loginUserReducer.currentUser
     dispatch({ type: 'GET_USERS_ORDERS_REQUEST'});
     try {
-      const response = await axios.post('/orders/getuserorders',{userid : currentUser._id})
+      const response = await axios.post('https://foodieshubb.herokuapp.com/orders/getuserorders',{userid : currentUser._id})
       dispatch({ type: 'GET_USERS_ORDERS_SUCCESS', payload: response.data });
     } catch (error) {
       console.log(error.message);
@@ -28,7 +28,7 @@ export const getUserOrders = () => async (dispatch , getState) => {
     const currentUser = getState().loginUserReducer.currentUser
     dispatch({ type: 'GET_ALL_ORDERS_REQUEST'});
     try {
-      const response = await axios.get('/orders/getallorders')
+      const response = await axios.get('https://foodieshubb.herokuapp.com/orders/getallorders')
       dispatch({ type: 'GET_ALL_ORDERS_SUCCESS', payload: response.data });
     } catch (error) {
       console.log(error.message);
@@ -36,9 +36,9 @@ export const getUserOrders = () => async (dispatch , getState) => {
   };
   export const deliverOrder = (orderid) => async (dispatch , getState) => {
     try {
-      const response = await axios.post('/orders/deliverorder',{orderid})
+      const response = await axios.post('https://foodieshubb.herokuapp.com/orders/deliverorder',{orderid})
       alert("Order Delivered")
-      const response1 = await axios.get('/orders/getallorders')
+      const response1 = await axios.get('https://foodieshubb.herokuapp.com/orders/getallorders')
       dispatch({ type: 'GET_ALL_ORDERS_SUCCESS', payload: response1.data });
     } catch (error) {
       console.log(error.message); 

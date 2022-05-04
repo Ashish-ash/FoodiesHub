@@ -80,7 +80,7 @@ export const deleteFromCart = (food) => async (dispatch, getState) => {
 export const addItem = (item) => async (dispatch) => {
   try {
     const response = await axios({
-      url: "/addfood",
+      url: "https://foodieshubb.herokuapp.com/addfood",
       method: "POST",
       data: item,
     });
@@ -92,7 +92,7 @@ export const addItem = (item) => async (dispatch) => {
 
 export const getFood = (itemid) => async (dispatch) => {
   try {
-    const response = await axios.post('/getonefood' , {itemid});
+    const response = await axios.post('https://foodieshubb.herokuapp.com/getonefood' , {itemid});
     dispatch({ type: "GET_FOOD_SUCCESS", payload: response.data });
   } catch (error) {
     console.log(error)
@@ -101,7 +101,7 @@ export const getFood = (itemid) => async (dispatch) => {
 export const updateItem = (item) => async (dispatch) => {
   try {
     const response = await axios({
-      url: "/updatefood",
+      url: "https://foodieshubb.herokuapp.com/updatefood",
       method: "POST",
       data: item,
     });
@@ -116,7 +116,7 @@ export const updateItem = (item) => async (dispatch) => {
 export const deleteitem = (itemid) => async(dispatch) =>{
   try {
     const response = await axios({
-      url: "/deleteitem",
+      url: "https://foodieshubb.herokuapp.com/deleteitem",
       method: "POST",
       data: {itemid}
     })
